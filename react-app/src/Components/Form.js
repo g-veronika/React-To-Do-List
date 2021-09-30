@@ -12,6 +12,8 @@ export default function Form() {
         
     ])
 
+    const [stateInput, setStateInput] = useState();
+
     const deleteElement = id => {
         
         const filteredState = dataArr.filter(item => {
@@ -20,11 +22,21 @@ export default function Form() {
         setDataArr(filteredState);
     }
 
+    const addTodo = e => {
+        e.preventDefault();
+    }
+
+    const linkedInput = e => {
+        setStateInput(e)
+    }
+
     return (
         <div className="m-auto px4 col12 col-sm-10 col-lg-6">
-            <form className="mb-3">
+            <form onSubmit={e => addTodo(e)} className="mb-3">
                 <label htmlFor="todo" className="form-label mt-3">Chose à faire</label>
-                <input type="text" className="form-control" id="todo"/>
+                <input 
+                onInput={e => linkedInput(e.target.value)} 
+                type="text" className="form-control" id="todo"/>
                 <button className="mt-2 btn btn-primary d-block">Envoyez</button>
             </form>
 
