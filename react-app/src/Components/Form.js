@@ -32,7 +32,8 @@ export default function Form() {
 
         newArr.push(newTodo);
         setDataArr(newArr);
-    }
+        setStateInput('');
+    };
 
     const linkedInput = e => {
         setStateInput(e)
@@ -43,6 +44,7 @@ export default function Form() {
             <form onSubmit={e => addTodo(e)} className="mb-3">
                 <label htmlFor="todo" className="form-label mt-3">Chose à faire</label>
                 <input 
+                value={stateInput}
                 onInput={e => linkedInput(e.target.value)} 
                 type="text" className="form-control" id="todo"/>
                 <button className="mt-2 btn btn-primary d-block">Envoyez</button>
