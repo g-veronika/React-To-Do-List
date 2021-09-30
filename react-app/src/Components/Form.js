@@ -20,15 +20,23 @@ export default function Form() {
             return item.id !== id;
         })
         setDataArr(filteredState);
-    }
+    };
 
     const addTodo = e => {
         e.preventDefault();
+        const newArr = [...dataArr];
+        
+        const newTodo = {};
+        newTodo.txt = stateInput;
+        newTodo.id = uuidv4();
+
+        newArr.push(newTodo);
+        setDataArr(newArr);
     }
 
     const linkedInput = e => {
         setStateInput(e)
-    }
+    };
 
     return (
         <div className="m-auto px4 col12 col-sm-10 col-lg-6">
@@ -54,5 +62,5 @@ export default function Form() {
                 })}
             </ul>
         </div>
-    )
-}
+    );
+};
