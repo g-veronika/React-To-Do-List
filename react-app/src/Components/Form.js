@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import Item from './Item'
 
 export default function Form() {
 
@@ -12,7 +13,13 @@ export default function Form() {
             </form>
 
             <h2>Liste des choses à faire : </h2>
-            <ul className="list-group"></ul>
+            <ul className="list-group">
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+
+            </ul>
         </div>
     )
 }
